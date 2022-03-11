@@ -7,7 +7,29 @@
           "name": "Segelflug",
           "id": "494f0a0e-cba8-4dfd-ac56-101b79fdc112",
           "logbookID": "7ca8ffbb-4271-4a93-8b9e-bf34e8dc8186",
-          "otherPermissions": []
+          "otherPermissions": [
+            {
+              "permission": "Gastflug",
+              "amount": "10",
+              "hours": "5",
+              "months": "3",
+              "id": "002fd1b5-9050-4f3c-b7fd-3542b8450b1e"
+            }
+          ]
+        },
+        {
+          "name": "Motorflug",
+          "id": "4b333bac-1b2e-42ff-94f2-bd54c4464cb7",
+          "logbookID": "43eb91d9-1f92-48d5-8e2d-706f461ded56",
+          "otherPermissions": [
+            {
+              "permission": "Nachtflug",
+              "amount": "2",
+              "hours": "10",
+              "months": "24",
+              "id": "76aa215d-9f1b-407c-9848-0533f6df3683"
+            }
+          ]
         }
       ],
       "flightlogs": [
@@ -28,15 +50,262 @@
               "id": "1e7c45be-bcab-424d-a839-e5cb426a6db5"
             }
           ],
-          "elementsPerPage": 12,
-          "flights": []
+          "elementsPerPage": "12",
+          "flights": [
+            {
+              "id": "e6c39293-58c2-4696-9776-f8cbc2a3346b",
+              "registration": "D-9280",
+              "takeoff": "Aachen",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-01-01T12:00:00.000Z",
+              "landingTime": "2022-01-01T15:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-01-01T12:00:00.000Z",
+              "onBlock": "2022-01-01T15:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c41",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "2c34a8c8-360c-4c55-b68a-c41645e358c4",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "Test",
+              "takeoffTime": "2022-03-02T12:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-02T12:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e992",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "a50a964c-9367-4912-b221-f2985ac96e99",
+              "registration": "D-5075",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-08T14:23:00.000Z",
+              "landingTime": "2022-03-08T17:22:00.000Z",
+              "flightTime": 179,
+              "offBlock": "2022-03-08T14:23:00.000Z",
+              "onBlock": "2022-03-08T17:22:00.000Z",
+              "blockTime": 179
+            },
+            {
+              "id": "219bc363-1b11-4d88-a8e6-07a97d84438b",
+              "registration": "D-8659",
+              "takeoff": "Wasserkuppe",
+              "landing": "Wasserkuppe",
+              "type": "Gummiseilstart",
+              "remarks": "kurzer Flug",
+              "takeoffTime": "2022-03-10T12:00:00.000Z",
+              "landingTime": "2022-03-10T12:03:00.000Z",
+              "flightTime": 3,
+              "offBlock": "2022-03-10T12:00:00.000Z",
+              "onBlock": "2022-03-10T12:03:00.000Z",
+              "blockTime": 3
+            }
+          ]
         },
         {
           "name": "Motorflug",
           "id": "43eb91d9-1f92-48d5-8e2d-706f461ded56",
-          "takeoffTypes": [],
+          "takeoffTypes": [
+            {
+              "takeoffType": "Eigenstart",
+              "amount": "7",
+              "months": "24",
+              "id": "72e5c6ec-b89a-4512-a4e9-feced32440ae"
+            }
+          ],
           "elementsPerPage": "10",
-          "flights": []
+          "flights": [
+            {
+              "id": "18cbbe2a-53f4-4891-8d2a-19f9eae8e5d2",
+              "registration": "D-EIIM",
+              "takeoff": "EDDK",
+              "landing": "EDDL",
+              "type": "Eigenstart",
+              "remarks": "",
+              "takeoffTime": "2022-02-12T10:00:00.000Z",
+              "landingTime": "2022-02-12T15:00:00.000Z",
+              "flightTime": 300,
+              "offBlock": "2022-02-12T10:00:00.000Z",
+              "onBlock": "2022-02-12T15:00:00.000Z",
+              "blockTime": 300
+            }
+          ]
         }
       ]
     }
