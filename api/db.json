@@ -1,0 +1,348 @@
+{
+  "users": [
+    {
+      "id": "123",
+      "licenses": [
+        {
+          "name": "Segelfluglizenz",
+          "id": "73b48a89-204a-44dc-ac1f-d27bf7d3de69",
+          "logbookID": "bb7e19fa-b1e4-4a1b-80e6-e7ed9f30070a",
+          "otherPermissions": []
+        },
+        {
+          "name": "SPL",
+          "id": "c78d6995-867f-4093-ac86-d8553e7400af",
+          "logbookID": "bb7e19fa-b1e4-4a1b-80e6-e7ed9f30070a",
+          "otherPermissions": []
+        },
+        {
+          "name": "Adaskdbh",
+          "id": "d49ee178-6d8d-40de-8eea-b0d4f4a5b2d0",
+          "logbookID": "cbbce7b7-6660-47c8-9a61-8a1e768e249d",
+          "otherPermissions": [
+            {
+              "permission": "kakj",
+              "amount": "0",
+              "hours": "0",
+              "months": "0",
+              "id": "a3f3a800-1b21-4846-9526-dbd059031681"
+            }
+          ]
+        }
+      ],
+      "flightlogs": [
+        {
+          "name": "Segelflug",
+          "id": "bb7e19fa-b1e4-4a1b-80e6-e7ed9f30070a",
+          "takeoffTypes": [
+            {
+              "takeoffType": "W",
+              "amount": "5",
+              "months": "24",
+              "id": "afb29260-e496-4217-b66c-941ff79a7426"
+            },
+            {
+              "takeoffType": "F",
+              "amount": "5",
+              "months": "24",
+              "id": "218468d0-4a7b-494b-894d-00d400bea598"
+            },
+            {
+              "takeoffType": "G",
+              "amount": "2",
+              "months": "24",
+              "id": "22c47217-105b-4c70-8315-d597480621c9"
+            }
+          ],
+          "elementsPerPage": "12",
+          "flights": [
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d645",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2020-02-25T11:00:00.000Z",
+              "landingTime": "2020-02-25T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2020-02-25T11:00:00.000Z",
+              "onBlock": "2020-02-25T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d64",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d641",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d642",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d643",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d644",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d646",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "G",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d647",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "G",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d648",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "F",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "6c909965-a032-4be1-8415-bb11b4314d649",
+              "registration": "D-MUTI",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "F",
+              "remarks": "",
+              "takeoffTime": "2022-02-28T11:00:00.000Z",
+              "landingTime": "2022-02-28T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-02-28T11:00:00.000Z",
+              "onBlock": "2022-02-28T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "25138762-edf2-4942-952b-9df9b65f5094",
+              "registration": "D-9280",
+              "takeoff": "Aachen",
+              "landing": "Aachen",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-03-01T11:00:00.000Z",
+              "landingTime": "2022-03-01T14:00:00.000Z",
+              "flightTime": 180,
+              "offBlock": "2022-03-01T11:00:00.000Z",
+              "onBlock": "2022-03-01T14:00:00.000Z",
+              "blockTime": 180
+            },
+            {
+              "id": "e0d5b020-d36a-49d8-a8fa-9e0d2004927f",
+              "registration": "D-9280",
+              "takeoff": "EDKA",
+              "landing": "EDKA",
+              "type": "G",
+              "remarks": "",
+              "takeoffTime": "2022-03-01T14:00:00.000Z",
+              "landingTime": "2022-03-01T15:00:00.000Z",
+              "flightTime": 60,
+              "offBlock": "2022-03-01T14:00:00.000Z",
+              "onBlock": "2022-03-01T15:00:00.000Z",
+              "blockTime": 60
+            },
+            {
+              "id": "00e16f76-e489-4d4a-9c0f-15419fde6dca",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "W",
+              "remarks": "",
+              "takeoffTime": "2022-03-09T11:05:00.000Z",
+              "landingTime": "2022-03-09T11:25:00.000Z",
+              "flightTime": 20,
+              "offBlock": "2022-03-09T11:00:00.000Z",
+              "onBlock": "2022-03-09T11:30:00.000Z",
+              "blockTime": 30
+            },
+            {
+              "id": "1389051f-58df-4ba3-8886-c8cee671aec1",
+              "registration": "D-TEST",
+              "takeoff": "Aachen",
+              "landing": "Aachen",
+              "type": "G",
+              "remarks": "",
+              "takeoffTime": "2022-03-10T11:00:00.000Z",
+              "landingTime": "2022-03-10T13:00:00.000Z",
+              "flightTime": 120,
+              "offBlock": "2022-03-10T11:00:00.000Z",
+              "onBlock": "2022-03-10T13:00:00.000Z",
+              "blockTime": 120
+            }
+          ]
+        },
+        {
+          "name": "Motorflug",
+          "id": "9c15670b-ac38-4a4d-baef-ed0f6b2a893e",
+          "takeoffTypes": [],
+          "elementsPerPage": 12,
+          "flights": [
+            {
+              "id": "c34c070b-07ff-4b1f-b55c-89bad5a38991",
+              "registration": "D-9280",
+              "takeoff": "Langenfeld",
+              "landing": "Langenfeld",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-01T10:00:00.000Z",
+              "landingTime": "2022-03-01T13:23:00.000Z",
+              "flightTime": 203,
+              "offBlock": "2022-03-01T10:00:00.000Z",
+              "onBlock": "2022-03-01T13:23:00.000Z",
+              "blockTime": 203
+            },
+            {
+              "id": "b750b91a-5af1-4071-980e-353f6853c179",
+              "registration": "D-EIIM",
+              "takeoff": "Aachen",
+              "landing": "Aachen",
+              "type": "Windenstart",
+              "remarks": "",
+              "takeoffTime": "2022-03-02T11:00:00.000Z",
+              "landingTime": "2022-03-02T13:00:00.000Z",
+              "flightTime": 120,
+              "offBlock": "2022-03-02T11:00:00.000Z",
+              "onBlock": "2022-03-02T13:00:00.000Z",
+              "blockTime": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "124",
+      "licenses": [],
+      "flightlogs": []
+    },
+    {
+      "id": "RAMSI HARTMAN",
+      "licenses": [],
+      "flightlogs": []
+    },
+    {
+      "id": "437355",
+      "licenses": [],
+      "flightlogs": []
+    },
+    {
+      "id": "340987vdlkdjdliu",
+      "licenses": [],
+      "flightlogs": [
+        {
+          "name": "weliughblkn",
+          "id": "5a23d275-17c5-469d-8f1b-c52b7dcf208d",
+          "takeoffTypes": [],
+          "elementsPerPage": 12,
+          "flights": []
+        },
+        {
+          "name": "erkljjlsbdöpoijvdsäi0erhüäW täpu9",
+          "id": "b325a57d-11a5-4949-b180-838234a19356",
+          "takeoffTypes": [],
+          "elementsPerPage": 12,
+          "flights": []
+        },
+        {
+          "name": "oöinevzwcöigudok vhin göuoid,ccifmöoaj fnh4389pz309üt+io",
+          "id": "2ecfd975-5d09-493c-acf8-22cb13c3378f",
+          "takeoffTypes": [],
+          "elementsPerPage": 12,
+          "flights": []
+        }
+      ]
+    },
+    {
+      "id": ".kljw s sfkjf",
+      "licenses": [],
+      "flightlogs": []
+    },
+    {
+      "id": "fdsjklgs.,mgb",
+      "licenses": [],
+      "flightlogs": []
+    }
+  ]
+}
