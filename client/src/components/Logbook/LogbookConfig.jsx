@@ -66,12 +66,9 @@ const LogbookConfig = (props) => {
             flightlogArray[indexOfFlightlog].takeoffTypes = takeoffTypes;
             flightlogArray[indexOfFlightlog].elementsPerPage = elementsPerPage;
         }
-
+        console.log(1);
         const data = { "userID": userID, "patchContent": { "flightlogs": flightlogArray } }
         dispatch(patchLogbooks(data));
-        while (status === "pending" || status === "idle") {
-            return;
-        }
         navigate("/logbooks");
     }
 
@@ -102,7 +99,7 @@ const LogbookConfig = (props) => {
                         <h3>Startarten</h3>
                         <Takeofftypes takeoffTypes={takeoffTypes} setTakeoffTypes={setTakeoffTypes} />
                         <br />
-                        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <Form noValidate validated={validated} onSubmit={(event) => handleSubmit(event)}>
                             <h3>Generelles</h3>
                             <Row>
                                 <Form.Group as={Col} md="8" controlId="title" className="mb-3">
