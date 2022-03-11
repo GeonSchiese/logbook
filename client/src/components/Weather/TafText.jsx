@@ -77,7 +77,7 @@ const TafText = () => {
         }
 
         let clouds = "";
-        if (forecast.clouds.length === 0 && metar.clouds.length != 0) {
+        if (forecast.clouds.length === 0 && metar.clouds.length !== 0) {
             clouds = "Die Wolken lösen sich auf. ";
         } else if (forecast.clouds.length === 0) {
             clouds = "Es gibt keine Wolken. ";
@@ -94,6 +94,7 @@ const TafText = () => {
                 } else {
                     clouds = clouds + ", ";
                 }
+                return "";
             });
         }
 
@@ -119,8 +120,9 @@ const TafText = () => {
                     } else if (wxCode.repr.includes("BR")) {
                         wx = wx + "Nebel. "
                     }
+                    return "";
                 });
-            } else if (forecast.wx_codes.length === 0 && metar.wx_codes.length != 0) {
+            } else if (forecast.wx_codes.length === 0 && metar.wx_codes.length !== 0) {
                 wx = "Der Niederschlag klingt ab. ";
             }
         }
@@ -187,8 +189,6 @@ const TafText = () => {
     const startDate = new Date(taf.start_time.dt);
     const endDate = new Date(taf.end_time.dt);
 
-    console.log(metar)
-    console.log(taf)
     return (
         <>
             Wettervorhersage vom {date.getUTCDate() + "." + (date.getUTCMonth() + 1) + "." + date.getUTCFullYear() + " um " + timeFormatter(date.getUTCHours(), date.getUTCMinutes()) + " Uhr UTC"}

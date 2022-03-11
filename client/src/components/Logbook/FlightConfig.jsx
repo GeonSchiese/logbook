@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from '../Header';
+import Header from "../Header";
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { v4 as uuidv4 } from "uuid";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import { fetchLogbooks, patchLogbooks } from "../../store/logbookSlice";
 import _ from "lodash";
 import timeFormatter from "../utils/timeFormatter";
@@ -38,7 +38,7 @@ const FlightConfig = (props) => {
 
     useEffect(() => {
         dispatch(fetchLogbooks(userID));
-    }, []);
+    }, [dispatch, userID]);
 
     const handleSetDefaults = (element) => {
         if (window.location.pathname === `/logbooks/${logbookID}/flights/new`) {
@@ -68,11 +68,13 @@ const FlightConfig = (props) => {
                     setTotalBlockMinutes(flight.blockTime);
                     setRemarks(flight.remarks);
                 }
+                return "";
             })
         }
     }
 
-    // ******** Standard Beispiel von React-Bootstrap *********
+    // ********************************************************
+    // Quelle: https://react-bootstrap.netlify.app/forms/validation/
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -90,6 +92,7 @@ const FlightConfig = (props) => {
 
     const updateData = () => {
         dispatch(fetchLogbooks(userID));
+        //lodash cloneDeep idee kommt hierher (2. Antwort): https://stackoverflow.com/questions/69749850/typeerror-cant-define-array-index-property-past-the-end-of-an-array-with-non-w
         const tempLogbooks = _.cloneDeep(logbooks);
 
         let currentFlightlog = null;
@@ -97,9 +100,9 @@ const FlightConfig = (props) => {
             if (flightlog.id === logbookID) {
                 currentFlightlog = flightlog;
             }
+            return "";
         });
         const currentFlightlogIndex = tempLogbooks.indexOf(currentFlightlog);
-        console.log(currentFlightlogIndex);
         const flightData = {
             "id": flightID,
             "registration": registration,
@@ -123,6 +126,7 @@ const FlightConfig = (props) => {
                 if (flight.id === props.match.params.flightID) {
                     currentFlight = flight;
                 }
+                return "";
             });
             currentFlightlog.flights[currentFlightlog.flights.indexOf(currentFlight)] = flightData;
         }
@@ -156,8 +160,6 @@ const FlightConfig = (props) => {
     }
 
     const calcBlock = () => {
-        console.log(offBlock);
-        console.log(onBlock);
         if (offBlock && onBlock && date) {
             const offBlockDate = new Date(date + "T" + offBlock);
             const onBlockDate = new Date(date + "T" + onBlock);
@@ -169,8 +171,6 @@ const FlightConfig = (props) => {
     }
 
     const calcFlight = () => {
-        console.log(takeoff);
-        console.log(landing);
         if (takeoff && landing && date) {
             const takeoffDate = new Date(date + "T" + takeoff);
             const landingDate = new Date(date + "T" + landing);
@@ -211,11 +211,13 @@ const FlightConfig = (props) => {
                     if (element.id === logbookID) {
                         handleSetDefaults(element);
                     }
+                    return "";
                 });
             } else {
+                //Form auf Basis von dieser Quelle aufgebaut: https://react-bootstrap.netlify.app/forms/validation/
                 return (
                     <div>
-                        <h2 className='d-flex justify-content-between'>
+                        <h2 className="d-flex justify-content-between">
                             {header}
                         </h2>
                         <hr />
@@ -348,7 +350,7 @@ const FlightConfig = (props) => {
         }
     }
 
-    if(!userID) {
+    if (!userID) {
         navigate("/");
     }
 

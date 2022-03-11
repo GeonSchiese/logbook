@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Button, Form, Spinner, Stack } from "react-bootstrap";
+import { Button, Form, Stack } from "react-bootstrap";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import flightlog from "../apis/flightlog";
-import createBrowserHistory from '../history';
 import { setSignIn } from "../store/authSlice";
 import navigate from "./utils/navigate";
 
@@ -18,7 +17,7 @@ const LoginForm = () => {
 
     const isSignedIn = useSelector(state => state.auth.isSignedIn);
 
-    useEffect(async () => {
+    useEffect(() => {
         if (window.location.pathname === "/login") {
             setButtonText("Einloggen");
         } else {
@@ -32,8 +31,8 @@ const LoginForm = () => {
             setFailed(false);
         }
     }
-
-    // ******** Standard Beispiel von React-Bootstrap *********
+    // ********************************************************
+    // Quelle: https://react-bootstrap.netlify.app/forms/validation/
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -49,12 +48,12 @@ const LoginForm = () => {
 
     async function validateAction() {
         const response = await flightlog.get("/users");
-        console.log(response.data);
         let isExistingUser = false;
         response.data.map(user => {
             if (user.id === userID) {
                 isExistingUser = true;
             }
+            return "";
         });
         if (window.location.pathname === "/login") {
             if (isExistingUser === true) {
@@ -70,7 +69,7 @@ const LoginForm = () => {
                 setUserID("");
             } else {
                 const userData = { "id": userID, "licenses": [], "flightlogs": [] }
-                const postResponse = await flightlog.post("/users", userData);
+                await flightlog.post("/users", userData);
                 setIsDisabled(true);
                 dispatch(setSignIn(userID));
             }

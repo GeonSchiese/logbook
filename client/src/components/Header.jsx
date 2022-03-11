@@ -1,6 +1,5 @@
 import React from "react";
-import { Navbar, Container, Offcanvas, Nav, NavDropdown } from "react-bootstrap";
-import createBrowserHistory from '../history';
+import { Navbar, Container, Offcanvas, Nav } from "react-bootstrap";
 import { BsPower, BsFillCloudSunFill, BsListUl, BsCreditCard2Front } from "react-icons/bs";
 import { AiOutlineDashboard } from "react-icons/ai"
 import { FaRegPaperPlane } from "react-icons/fa"
@@ -22,11 +21,12 @@ const Header = () => {
         navigate("/");
     }
 
+    //Quelle: https://react-bootstrap.netlify.app/components/navbar/
     return (
         <div>
             <Navbar bg="dark" variant="dark" expand={false}>
                 <Container fluid>
-                    <Navbar.Brand onClick={() => navigate('/dashboard')} style={{ cursor: 'pointer' }}>logbook <FaRegPaperPlane /></Navbar.Brand>
+                    <Navbar.Brand onClick={() => navigate("/dashboard")} style={{ cursor: "pointer" }}>logbook <FaRegPaperPlane /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="offcanvasNavbar" />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar"
@@ -38,11 +38,11 @@ const Header = () => {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="flex-grow-1 pe-3 h-100 w-100">
-                                <Nav.Link onClick={() => navigate('/dashboard')}><AiOutlineDashboard />&nbsp; Dashboard</Nav.Link>
+                                <Nav.Link onClick={() => navigate("/dashboard")}><AiOutlineDashboard />&nbsp; Dashboard</Nav.Link>
                                 <hr />
-                                <Nav.Link onClick={() => navigate('/logbooks')}><BsListUl />&nbsp; Flugbücher</Nav.Link>
-                                <Nav.Link onClick={() => navigate('/licenses')}><BsCreditCard2Front className="mr-10" />&nbsp; Lizenzen</Nav.Link>
-                                <Nav.Link onClick={() => navigate('/weather')}><BsFillCloudSunFill />&nbsp; Wetter</Nav.Link>
+                                <Nav.Link onClick={() => navigate("/logbooks")}><BsListUl />&nbsp; Flugbücher</Nav.Link>
+                                <Nav.Link onClick={() => navigate("/licenses")}><BsCreditCard2Front className="mr-10" />&nbsp; Lizenzen</Nav.Link>
+                                <Nav.Link onClick={() => navigate("/weather")}><BsFillCloudSunFill />&nbsp; Wetter</Nav.Link>
                                 <hr />
                                 <Nav.Link style={{ color: "red" }} onClick={() => handleSignOut()}><BsPower className="mx-auto" />&nbsp; Ausloggen</Nav.Link>
                             </Nav>

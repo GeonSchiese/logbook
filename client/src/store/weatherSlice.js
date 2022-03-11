@@ -1,19 +1,19 @@
-import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit';
-import weather from '../apis/weather';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import weather from "../apis/weather";
 
 const initialState = {
     metar: null,
     taf: null,
-    status: 'idle',
+    status: "idle",
     errormsg: null
 }
 
 const weatherSlice = createSlice({
-    name: 'weather',
+    name: "weather",
     initialState,
     reducers: {
         setErrorMsg (state, action) {
-            return {...state, status: 'failed', errormsg: action.payload};
+            return {...state, status: "failed", errormsg: action.payload};
         },
         clearWeather (state, action) {
             return initialState;
@@ -22,22 +22,21 @@ const weatherSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchWeather.pending, (state, action) => {
-                state.status = 'loading';
+                state.status = "loading";
             })
             .addCase(fetchWeather.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = "succeeded";
                 state.metar = action.payload.metar;
                 state.taf = action.payload.taf;
             })
             .addCase(fetchWeather.rejected, (state, action) => {
-                state.status = 'failed';
-                console.log(action);
+                state.status = "failed";
                 state.errormsg = action.error.message;
             })
     }
 });
 
-export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (location) => {
+export const fetchWeather = createAsyncThunk("weather/fetchWeather", async (location) => {
     const responseMetar = await weather.get(`/metar/${location}`);
     const responseTaf = await weather.get(`/taf/${location}`);
     return { "metar": responseMetar.data, "taf": responseTaf.data};

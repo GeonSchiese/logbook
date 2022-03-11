@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { useState } from "react";
 import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import CenteredModal from "../CenteredModal";
 
 
@@ -11,11 +11,14 @@ const Takeofftypes = (props) => {
     const [months, setMonths] = useState("");
     const [typeID, setTypeID] = useState("");
     const [modalShow, setModalShow] = useState(false);
+    const [modalTakeofftype, setModalTakeofftype] = useState();
+    const [modalTakeofftypeID, setModalTakeofftypeID] = useState();
     const [isEditing, setIsEditing] = useState(false);
     const [buttonText, setButtonText] = useState("Hinzufügen");
 
 
-    // ******** Standard Beispiel von React-Bootstrap *********
+    // ********************************************************
+    // Quelle: https://react-bootstrap.netlify.app/forms/validation/
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -24,14 +27,17 @@ const Takeofftypes = (props) => {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
+            //lodash cloneDeep idee kommt hierher (2. Antwort): https://stackoverflow.com/questions/69749850/typeerror-cant-define-array-index-property-past-the-end-of-an-array-with-non-w
             const temp = _.cloneDeep(props.takeoffTypes);
             if (isEditing) {
                 let indexOfTakeofftype = null;
+                //lodash cloneDeep idee kommt hierher (2. Antwort): https://stackoverflow.com/questions/69749850/typeerror-cant-define-array-index-property-past-the-end-of-an-array-with-non-w
                 const takeoffTypesArray = _.cloneDeep(props.takeoffTypes);
                 takeoffTypesArray.map(takeoffType => {
                     if (takeoffType.id === typeID) {
                         indexOfTakeofftype = takeoffTypesArray.indexOf(takeoffType);
                     }
+                    return "";
                 });
                 temp[indexOfTakeofftype] = { "takeoffType": type, "amount": amount, "months": months, "id": typeID }
                 setIsEditing(false);
@@ -39,7 +45,6 @@ const Takeofftypes = (props) => {
             } else {
                 temp.push({ "takeoffType": type, "amount": amount, "months": months, "id": uuidv4() })
             }
-            console.log(temp);
             props.setTakeoffTypes(temp);
             setType("");
             setAmount("");
@@ -56,11 +61,13 @@ const Takeofftypes = (props) => {
 
     const handleDelete = (id) => {
         let indexOfTakeofftype = null;
+        //lodash cloneDeep idee kommt hierher (2. Antwort): https://stackoverflow.com/questions/69749850/typeerror-cant-define-array-index-property-past-the-end-of-an-array-with-non-w
         const takeoffTypesArray = _.cloneDeep(props.takeoffTypes);
         takeoffTypesArray.map(takeoffType => {
             if (takeoffType.id === id) {
                 indexOfTakeofftype = takeoffTypesArray.indexOf(takeoffType);
             }
+            return "";
         });
         takeoffTypesArray.splice(indexOfTakeofftype, 1);
         props.setTakeoffTypes(takeoffTypesArray);
@@ -93,10 +100,10 @@ const Takeofftypes = (props) => {
                         <span >{takeoffType.takeoffType}</span>
                         <div className="ml-auto">
                             <Button className="mx-2" onClick={() => handleEdit(takeoffType)} variant="primary" size="sm">Bearbeiten</Button>
-                            <Button onClick={() => setModalShow(true)} variant="danger" size="sm">Löschen</Button>
+                            <Button onClick={() => {setModalShow(true); setModalTakeofftype(takeoffType.takeoffType); setModalTakeofftypeID(takeoffType.id);}} variant="danger" size="sm">Löschen</Button>
                         </div>
                     </div>
-                    <CenteredModal show={modalShow} onHide={() => setModalShow(false)} title="Startart löschen" bodyTitle={takeoffType.takeoffType} bodyText="Möchten Sie diese Startart wirklich löschen?" actions={renderActions(takeoffType.id)} />
+                    <CenteredModal show={modalShow} onHide={() => setModalShow(false)} title="Startart löschen" bodyTitle={modalTakeofftype} bodyText="Möchten Sie diese Startart wirklich löschen?" actions={renderActions(modalTakeofftypeID)} />
                 </ListGroup.Item>
             );
         });
@@ -125,14 +132,14 @@ const Takeofftypes = (props) => {
                         <Form.Label>benötigte Anzahl</Form.Label>
                         <Form.Control required onChange={(event) => handleChange(event, setAmount)} type="number" min="0" name="amount" value={amount} placeholder="5" />
                         <Form.Control.Feedback type="invalid">
-                            Bitte geben Sie die benötigte Anzahl an. Hinweis: Diese kann nicht kleiner als '0' sein.
+                            Bitte geben Sie die benötigte Anzahl an. Hinweis: Diese kann nicht kleiner als "0" sein.
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md="4" controlId="months" className="mb-3">
-                        <Form.Label>in 'x' Monaten</Form.Label>
+                        <Form.Label>in "x" Monaten</Form.Label>
                         <Form.Control required onChange={(event) => handleChange(event, setMonths)} type="number" min="0" name="months" value={months} placeholder="24" />
                         <Form.Control.Feedback type="invalid">
-                            Bitte geben Sie den Zeitraum in Monaten an. Hinweis: Dieser kann nicht kleiner als '0' sein.
+                            Bitte geben Sie den Zeitraum in Monaten an. Hinweis: Dieser kann nicht kleiner als "0" sein.
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Button className="mx-auto w-25" type="submit" variant="primary">{buttonText}</Button>

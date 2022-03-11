@@ -18,6 +18,7 @@ const WeatherForm = () => {
             event.stopPropagation();
         } else {
             if(isDisabled) {
+                //Quelle: Grider, Video Nr. 51
                 window.navigator.geolocation.getCurrentPosition(
                     (position) => dispatch(fetchWeather(position.coords.latitude + "," + position.coords.longitude)) 
                 );

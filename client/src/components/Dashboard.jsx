@@ -1,14 +1,12 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { Button, Card, ProgressBar } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import createBrowserHistory from '../history';
-import { fetchLicenses } from '../store/licenseSlice';
-import { fetchLogbooks } from '../store/logbookSlice';
-import Header from './Header';
-import LicenseCard from './Licenses/LicenseCard';
-import LicenseList from './Licenses/LicenseList';
-import navigate from './utils/navigate';
+import React from "react";
+import { useEffect } from "react";
+import { Button, Card, ProgressBar } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLicenses } from "../store/licenseSlice";
+import { fetchLogbooks } from "../store/logbookSlice";
+import Header from "./Header";
+import LicenseCard from "./Licenses/LicenseCard";
+import navigate from "./utils/navigate";
 
 
 const Dashboard = () => {

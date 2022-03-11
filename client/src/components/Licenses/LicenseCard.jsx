@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLogbooks } from "../../store/logbookSlice";
 import TakeoffTypeStatus from "./TakeoffTypeStatus";
 import CenteredModal from "../CenteredModal";
 import { fetchLicenses, patchLicenses } from "../../store/licenseSlice";
 import _ from "lodash";
 import PermissionStatus from "./PermissionStatus";
-import Dashboard from "../Dashboard";
 import navigate from "../utils/navigate";
 
 const LicenseCard = (props) => {
@@ -49,7 +47,7 @@ const LicenseCard = (props) => {
         } else {
             return (
                 <Card>
-                    <Card.Header as='h4' className="diplay-flex">
+                    <Card.Header as="h4" className="diplay-flex">
                         {license.name}
                         <Button className="mx-2" onClick={() => navigate(`/licenses/edit/${license.id}`)} variant="primary" size="sm">Bearbeiten</Button>
                         <Button onClick={() => setModalShow(true)} variant="danger" size="sm">Löschen</Button>

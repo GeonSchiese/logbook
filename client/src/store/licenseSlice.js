@@ -1,15 +1,14 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import _ from 'lodash';
-import flightlog from '../apis/flightlog';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import flightlog from "../apis/flightlog";
 
 const initialState = {
     licenses: [],
-    status: 'idle',
+    status: "idle",
     errormsg : null
 }
 
 const licenseSlice = createSlice({
-    name: 'license',
+    name: "license",
     initialState,
     reducers: {
         clearLicenses (state, action) {
@@ -19,6 +18,7 @@ const licenseSlice = createSlice({
             state.status = "idle";
         }
     },
+    //Quelle: https://redux.js.org/tutorials/fundamentals/part-6-async-logic
     extraReducers(builder) {
         builder
             .addCase(fetchLicenses.pending, (state, action) => {
@@ -46,7 +46,7 @@ const licenseSlice = createSlice({
     }
 });
 
-export const fetchLicenses = createAsyncThunk('license/fetchLicenses', async (userId) => {
+export const fetchLicenses = createAsyncThunk("license/fetchLicenses", async (userId) => {
     const response = await flightlog.get(`/users/${userId}`);
     return {"licenses": response.data.licenses};
 });

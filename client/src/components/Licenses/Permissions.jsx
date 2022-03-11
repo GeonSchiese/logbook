@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { useState } from "react";
 import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import CenteredModal from "../CenteredModal";
 
 
@@ -12,11 +12,13 @@ const Permissions = (props) => {
     const [months, setMonths] = useState("");
     const [permissionID, setPermissionID] = useState("");
     const [modalShow, setModalShow] = useState(false);
+    const [modalPermission, setModalPermission] = useState();
+    const [modalPermissionID, setModalPermissionID] = useState("");
     const [isEditing, setIsEditing] = useState(false);
     const [buttonText, setButtonText] = useState("Hinzufügen");
 
-
-    // ******** Standard Beispiel von React-Bootstrap *********
+    // ********************************************************
+    // Quelle: https://react-bootstrap.netlify.app/forms/validation/    
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -32,6 +34,7 @@ const Permissions = (props) => {
                     if (permission.id === permissionID) {
                         indexOfPermission = temp.indexOf(permission);
                     }
+                    return "";
                 });
                 temp[indexOfPermission] = { "permission": permission, "amount": amount, "hours": hours, "months": months, "id": permissionID }
                 setIsEditing(false);
@@ -39,7 +42,6 @@ const Permissions = (props) => {
             } else {
                 temp.push({ "permission": permission, "amount": amount, "hours": hours, "months": months, "id": uuidv4() })
             }
-            console.log(temp);
             props.setPermissions(temp);
             setPermission("");
             setAmount("");
@@ -62,6 +64,7 @@ const Permissions = (props) => {
             if (permission.id === id) {
                 indexOfPermission = permissionsArray.indexOf(permission);
             }
+            return "";
         });
         permissionsArray.splice(indexOfPermission, 1);
         props.setPermissions(permissionsArray);
@@ -95,10 +98,10 @@ const Permissions = (props) => {
                         <span >{permission.permission}</span>
                         <div className="ml-auto">
                             <Button className="mx-2" onClick={() => handleEdit(permission)} variant="primary" size="sm">Bearbeiten</Button>
-                            <Button onClick={() => setModalShow(true)} variant="danger" size="sm">Löschen</Button>
+                            <Button onClick={() => {setModalShow(true); setModalPermission(permission.permission); setModalPermissionID(permission.id); }} variant="danger" size="sm">Löschen</Button>
                         </div>
                     </div>
-                    <CenteredModal show={modalShow} onHide={() => setModalShow(false)} title="Startart löschen" bodyTitle={permission.permission} bodyText="Möchten Sie diese Berechtigung wirklich löschen?" actions={renderActions(permission.id)} />
+                    <CenteredModal show={modalShow} onHide={() => setModalShow(false)} title="Startart löschen" bodyTitle={modalPermission} bodyText="Möchten Sie diese Berechtigung wirklich löschen?" actions={renderActions(modalPermissionID)} />
                 </ListGroup.Item>
             );
         });
@@ -119,21 +122,21 @@ const Permissions = (props) => {
                         <Form.Label>benötigte Starts</Form.Label>
                         <Form.Control required onChange={(event) => handleChange(event, setAmount)} type="number" min="0" name="amount" value={amount} placeholder="5" />
                         <Form.Control.Feedback type="invalid">
-                            Bitte geben Sie die benötigte Anzahl an Starts an. Hinweis: Diese kann nicht kleiner als '0' sein.
+                            Bitte geben Sie die benötigte Anzahl an Starts an. Hinweis: Diese kann nicht kleiner als "0" sein.
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md="3" controlId="flightHours" className="mb-3">
                         <Form.Label>benötigte Flugstunden</Form.Label>
                         <Form.Control required onChange={(event) => handleChange(event, setHours)} type="number" min="0" name="flightHours" value={hours} placeholder="5" />
                         <Form.Control.Feedback type="invalid">
-                            Bitte geben Sie die benötigte Anzahl an Flugstunden an. Hinweis: Diese kann nicht kleiner als '0' sein.
+                            Bitte geben Sie die benötigte Anzahl an Flugstunden an. Hinweis: Diese kann nicht kleiner als "0" sein.
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md="3" controlId="months" className="mb-3">
-                        <Form.Label>in 'x' Monaten</Form.Label>
+                        <Form.Label>in "x" Monaten</Form.Label>
                         <Form.Control required onChange={(event) => handleChange(event, setMonths)} type="number" min="0" name="months" value={months} placeholder="24" />
                         <Form.Control.Feedback type="invalid">
-                            Bitte geben Sie den Zeitraum in Monaten an. Hinweis: Dieser kann nicht kleiner als '0' sein.
+                            Bitte geben Sie den Zeitraum in Monaten an. Hinweis: Dieser kann nicht kleiner als "0" sein.
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Button className="mx-auto w-25" type="submit" variant="primary">{buttonText}</Button>

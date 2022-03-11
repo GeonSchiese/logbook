@@ -39,7 +39,7 @@ const WeatherCard = (props) => {
     return (
         <div>
             <Card>
-                <Card.Header as='h3'>{props.title}</Card.Header>
+                <Card.Header as="h3">{props.title}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         {getCardText()}

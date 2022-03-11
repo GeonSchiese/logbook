@@ -1,14 +1,14 @@
 import React from "react";
-import { Router, Route, Switch } from 'react-router-dom';
-import LicenseList from './Licenses/LicenseList';
-import LogbookList from './Logbook/LogbookList';
-import Weather from './Weather/Weather';
-import Dashboard from './Dashboard';
-import Logbook from './Logbook/Logbook';
+import { Router, Route, Switch } from "react-router-dom";
+import LicenseList from "./Licenses/LicenseList";
+import LogbookList from "./Logbook/LogbookList";
+import Weather from "./Weather/Weather";
+import Dashboard from "./Dashboard";
+import Logbook from "./Logbook/Logbook";
 import LogbookConfig from "./Logbook/LogbookConfig";
-import FlightConfig from './Logbook/FlightConfig';
-import Home from './Home';
-import createBrowserHistory from '../history';
+import FlightConfig from "./Logbook/FlightConfig";
+import Home from "./Home";
+import createBrowserHistory from "../history";
 import LicenseConfig from "./Licenses/LicenceConfig";
 import LoginForm from "./LoginForm";
 

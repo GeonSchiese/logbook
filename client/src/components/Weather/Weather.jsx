@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { Alert, Spinner } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeather, setErrorMsg } from '../../store/weatherSlice';
-import Header from '../Header';
-import WeatherCard from './WeatherCard';
-import WeatherForm from './WeatherForm';
-import createBrowserHistory from '../../history';
-import navigate from '../utils/navigate';
+import React, { useEffect } from "react";
+import { Alert, Spinner } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeather, setErrorMsg } from "../../store/weatherSlice";
+import Header from "../Header";
+import WeatherCard from "./WeatherCard";
+import WeatherForm from "./WeatherForm";
+import navigate from "../utils/navigate";
 
 
 const Weather = () => {
@@ -16,23 +15,23 @@ const Weather = () => {
     const userID = useSelector(state => state.auth.userId);
 
     useEffect(() => {
-        if (weatherStatus === 'idle') {
+        if (weatherStatus === "idle") {
+            //Quelle: Grider, Video Nr. 51
             window.navigator.geolocation.getCurrentPosition(
                 (position) => dispatch(fetchWeather(position.coords.latitude + "," + position.coords.longitude)),
-                (error) => dispatch(setErrorMsg(error.message)),
-                {timeout: 10000, enableHighAccuracy: true}
+                (error) => dispatch(setErrorMsg(error.message))
             );
         }
     }, [weatherStatus, dispatch]);
 
     const renderWeather = () => {
-        if (weatherStatus === 'loading') {
+        if (weatherStatus === "loading") {
             return (
-                <div className='w-100'>
-                    <Spinner animation='border'/>
+                <div className="w-100">
+                    <Spinner animation="border" />
                 </div>
             );
-        } else if (weatherStatus === 'succeeded') {
+        } else if (weatherStatus === "succeeded") {
             return (
                 <div>
                     <WeatherCard title="METAR" />
@@ -40,7 +39,7 @@ const Weather = () => {
                     <WeatherCard title="TAF" />
                 </div>
             );
-        } else if (weatherStatus === 'failed') {
+        } else if (weatherStatus === "failed") {
             return (
                 <div>
                     <Alert variant="danger">
@@ -49,7 +48,7 @@ const Weather = () => {
                     </Alert>
                 </div>
             );
-        } else if (weatherStatus === 'idle') {
+        } else if (weatherStatus === "idle") {
             return (
                 <div>
                     <Alert variant="primary">
@@ -85,7 +84,7 @@ const Weather = () => {
         }
     }
 
-    if(!userID) {
+    if (!userID) {
         navigate("/");
     }
 

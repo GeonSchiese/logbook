@@ -1,11 +1,12 @@
-import {combineReducers, configureStore, applyMiddleware, compose } from '@reduxjs/toolkit';
-import reduxThunk from 'redux-thunk';
+import {combineReducers, configureStore, applyMiddleware, compose } from "@reduxjs/toolkit";
+import reduxThunk from "redux-thunk";
 
-import authReducer from './authSlice';
-import logbookReducer from './logbookSlice';
-import weatherReducer from './weatherSlice';
-import licenseReducer from './licenseSlice';
+import authReducer from "./authSlice";
+import logbookReducer from "./logbookSlice";
+import weatherReducer from "./weatherSlice";
+import licenseReducer from "./licenseSlice";
 
+//Orientiert an: https://github.com/kuehnert/2021-informatik-pk/blob/main/todolist-redux/src/store/store.js 
 export const rootReducer = combineReducers({
     auth: authReducer,
     license: licenseReducer,

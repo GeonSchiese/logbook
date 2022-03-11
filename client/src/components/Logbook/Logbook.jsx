@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Header from '../Header';
+import Header from "../Header";
 import { Table, Button } from "react-bootstrap";
-import { fetchLogbooks, patchLogbooks } from '../../store/logbookSlice';
-import createBrowserHistory from '../../history';
+import { fetchLogbooks, patchLogbooks } from "../../store/logbookSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { BsTrash, BsPencil } from "react-icons/bs";
 import timeFormatter from "../utils/timeFormatter";
@@ -24,12 +23,12 @@ const Logbook = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(1);
         dispatch(fetchLogbooks(userID));
-    }, []);
+    }, [dispatch, userID]);
 
     const handleDelete = (flight) => {
         dispatch(fetchLogbooks(userID));
+        //lodash cloneDeep idee kommt hierher (2. Antwort): https://stackoverflow.com/questions/69749850/typeerror-cant-define-array-index-property-past-the-end-of-an-array-with-non-w
         const userFlightlogs = _.cloneDeep(logbooks);
         let indexOfFlightlog = null;
         let indexOfFlight = null;
@@ -37,11 +36,13 @@ const Logbook = (props) => {
             if (flightlog.id === id) {
                 indexOfFlightlog = userFlightlogs.indexOf(flightlog);
             }
+            return "";
         });
         userFlightlogs[indexOfFlightlog].flights.map(currentFlight => {
             if (currentFlight.id === flight.id) {
                 indexOfFlight = userFlightlogs[indexOfFlightlog].flights.indexOf(currentFlight);
             }
+            return "";
         })
         userFlightlogs[indexOfFlightlog].flights.splice(indexOfFlight, 1);
         dispatch(patchLogbooks({ "userID": userID, "patchContent": { "flightlogs": userFlightlogs } }));
@@ -61,6 +62,7 @@ const Logbook = (props) => {
         let pageTotalBlockTime = 0;
         pageItems.map(flight => {
             pageTotalBlockTime = pageTotalBlockTime + flight.blockTime;
+            return "";
         });
         return (
             <tr>
@@ -109,7 +111,7 @@ const Logbook = (props) => {
                     <th>{newOnBlockTime}</th>
                     <th>{timeFormatter(0, flight.blockTime)}</th>
                     <th>{flight.remarks}</th>
-                    <th><BsPencil onClick={() => navigate(`/logbooks/${id}/flights/edit/${flight.id}`)} style={{ cursor: 'pointer' }} /><BsTrash onClick={() => {setModalShow(true); setModalFlightID(flight.id); setModalFlight(flight)}} className="mx-1" style={{ cursor: 'pointer' }} /></th>
+                    <th><BsPencil onClick={() => navigate(`/logbooks/${id}/flights/edit/${flight.id}`)} style={{ cursor: "pointer" }} /><BsTrash onClick={() => { setModalShow(true); setModalFlightID(flight.id); setModalFlight(flight) }} className="mx-1" style={{ cursor: "pointer" }} /></th>
                     <CenteredModal show={modalShow} onHide={() => setModalShow(false)} title="Flug löschen" bodyTitle={`Flug: ${modalFlightID}`} bodyText="Möchtest du diesen Flug wirklich löschen?" actions={renderActions(modalFlight)} />
                 </tr>
             );
@@ -152,14 +154,13 @@ const Logbook = (props) => {
         let totalTime = 0;
         pageItems.map(flight => {
             totalTime = totalTime + flight.flightTime;
+            return "";
         });
-        console.log(totalTime)
         return totalTime;
     }
 
     const mapPages = (logbookPageItems) => {
         return logbookPageItems.slice(0).reverse().map(pageItems => {
-            console.log(pageItems);
             const page = logbookPageItems.indexOf(pageItems) + 1;
             let pageGrossFlighttime = 0;
             for (let i = 0; i < page; i++) {
@@ -185,10 +186,8 @@ const Logbook = (props) => {
         for (let i = 1; i <= pages; i++) {
             if (i === pages) {
                 logbookPageItems.push(logbookData.flights.slice((pageLength * i) - pageLength, logbookData.flights.length));
-                console.log(logbookPageItems);
             } else {
                 logbookPageItems.push(logbookData.flights.slice((pageLength * i) - pageLength, (pageLength * i)));
-                console.log(logbookPageItems);
             }
         }
         return (
@@ -208,8 +207,8 @@ const Logbook = (props) => {
         } else {
             return (
                 <div>
-                    <h2 className='d-flex justify-content-between'>
-                        Flugbuch für '{logbookData["name"]}'
+                    <h2 className="d-flex justify-content-between">
+                        Flugbuch für "{logbookData["name"]}"
                         <Button onClick={() => navigate(`/logbooks/${logbookData.id}/flights/new`)} className="ml-auto" variant="primary">New Flight</Button>
                     </h2>
                     <hr />
@@ -219,7 +218,7 @@ const Logbook = (props) => {
         }
     }
 
-    if(!userID) {
+    if (!userID) {
         navigate("/");
     }
 

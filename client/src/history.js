@@ -1,5 +1,4 @@
-import { createBrowserHistory } from 'history'; 
+import { createBrowserHistory } from "history"; 
 
+//Quelle: Grider, Vieo Nr. 356
 export default createBrowserHistory();
-
-//require("history").createBrowserHistory

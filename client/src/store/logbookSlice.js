@@ -1,24 +1,24 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import _ from 'lodash';
-import flightlog from '../apis/flightlog';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import flightlog from "../apis/flightlog";
 
 const initialState = {
     flightlogs: [],
-    status: 'idle',
-    errormsg : null
+    status: "idle",
+    errormsg: null
 }
 
 const logbookSlice = createSlice({
-    name: 'logbook',
+    name: "logbook",
     initialState,
     reducers: {
-        clearLogbooks (state, action) {
+        clearLogbooks(state, action) {
             return initialState;
         },
         setLogbookStatusIdle(state, action) {
             state.status = "idle";
         }
     },
+    //Quelle: https://redux.js.org/tutorials/fundamentals/part-6-async-logic
     extraReducers(builder) {
         builder
             .addCase(fetchLogbooks.pending, (state, action) => {
@@ -46,14 +46,14 @@ const logbookSlice = createSlice({
     }
 });
 
-export const fetchLogbooks = createAsyncThunk('logbook/fetchLogbooks', async (userId) => {
+export const fetchLogbooks = createAsyncThunk("logbook/fetchLogbooks", async (userId) => {
     const response = await flightlog.get(`/users/${userId}`);
-    return {"logbooks": response.data.flightlogs};
+    return { "logbooks": response.data.flightlogs };
 });
 
 export const patchLogbooks = createAsyncThunk("logbook/patchLogbooks", async (data) => {
     const response = await flightlog.patch(`/users/${data.userID}`, data.patchContent);
-    return {"logbooks": response.data.flightlogs};
+    return { "logbooks": response.data.flightlogs };
 })
 
 export const { clearLogbooks, setLogbookStatusIdle } = logbookSlice.actions;

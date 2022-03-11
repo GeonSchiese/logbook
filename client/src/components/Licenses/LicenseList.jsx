@@ -1,13 +1,12 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Header from '../Header';
-import createBrowserHistory from '../../history';
-import { Button, ListGroup } from 'react-bootstrap';
-import { useEffect } from 'react';
-import { fetchLicenses } from '../../store/licenseSlice';
-import LicenseCard from './LicenseCard';
-import { fetchLogbooks } from '../../store/logbookSlice';
-import navigate from '../utils/navigate';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../Header";
+import { Button } from "react-bootstrap";
+import { useEffect } from "react";
+import { fetchLicenses } from "../../store/licenseSlice";
+import LicenseCard from "./LicenseCard";
+import { fetchLogbooks } from "../../store/logbookSlice";
+import navigate from "../utils/navigate";
 
 const LicenseList = () => {
     const dispatch = useDispatch();
@@ -51,9 +50,9 @@ const LicenseList = () => {
             <Header />
             <div className="mx-auto w-75">
                 <br />
-                <h2 className='d-flex justify-content-between'>
+                <h2 className="d-flex justify-content-between">
                     Lizenzen
-                    <Button onClick={() => navigate('/licenses/new')} className="ml-auto" variant="primary">Neu</Button>
+                    <Button onClick={() => navigate("/licenses/new")} className="ml-auto" variant="primary">Neu</Button>
                 </h2>
                 <hr />
                 <br />

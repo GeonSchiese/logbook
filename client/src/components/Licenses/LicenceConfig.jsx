@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import Header from "../Header";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLicenses, patchLicenses, setLicenceStatusIdle } from "../../store/licenseSlice";
 import { fetchLogbooks } from "../../store/logbookSlice";
 import { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 import Permissions from "./Permissions";
 import navigate from "../utils/navigate";
@@ -28,7 +28,7 @@ const LicenseConfig = (props) => {
     const [otherPermissions, setOtherPermissions] = useState([]);
 
     useEffect(() => {
-        if (window.location.pathname === '/licenses/new') {
+        if (window.location.pathname === "/licenses/new") {
             dispatch(fetchLogbooks(userID));
             setHeader("Neue Lizenz erstellen");
             setTitle("");
@@ -44,7 +44,8 @@ const LicenseConfig = (props) => {
         action(event.target.value);
     }
 
-    // ******** Standard Beispiel von React-Bootstrap *********
+    // ********************************************************
+    // Quelle: https://react-bootstrap.netlify.app/forms/validation/
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -61,7 +62,7 @@ const LicenseConfig = (props) => {
     const updateData = () => {
         dispatch(fetchLicenses(userID));
         let tempLicenses = _.cloneDeep(licenses);
-        if (window.location.pathname === '/licenses/new') {
+        if (window.location.pathname === "/licenses/new") {
             tempLicenses.push({ "name": title, "id": uuidv4(), "logbookID": logbookID, "otherPermissions": otherPermissions });
         } else {
             let indexOfLicense = null;
@@ -79,7 +80,7 @@ const LicenseConfig = (props) => {
         while(licenses.status === "pending" || licenses.status === "idle") {
             return;
         }
-        navigate('/licenses');
+        navigate("/licenses");
     }
 
     const renderLogbooks = () => {
@@ -129,7 +130,7 @@ const LicenseConfig = (props) => {
                                         {renderLogbooks()}
                                     </Form.Control>
                                     <Form.Control.Feedback type="invalid">
-                                        Bitte wählen Sie ein Flugbuch aus. Falls keins zur Auswahl steht, müssen Sie eins unter 'Flügbücher' anlegen.
+                                        Bitte wählen Sie ein Flugbuch aus. Falls keins zur Auswahl steht, müssen Sie eins unter "Flügbücher" anlegen.
                                     </Form.Control.Feedback>
                                 </Form.Group>
                             </Row>
@@ -137,7 +138,7 @@ const LicenseConfig = (props) => {
                             <br />
                             <div className="text-align-center w-100">
                                 <div className="d-flex justify-content-center">
-                                    <Button className="w-100" onClick={() => navigate('/licenses')} variant="outline-danger">Cancel</Button>
+                                    <Button className="w-100" onClick={() => navigate("/licenses")} variant="outline-danger">Cancel</Button>
                                     <p className="mx-2"></p>
                                     <Button className="w-100" type="submit" variant="primary">Save</Button>
                                 </div>
@@ -160,7 +161,7 @@ const LicenseConfig = (props) => {
             <Header />
             <div className="mx-auto w-75">
                 <br />
-                <h2 className='d-flex justify-content-between'>
+                <h2 className="d-flex justify-content-between">
                     {header}
                 </h2>
                 <hr />

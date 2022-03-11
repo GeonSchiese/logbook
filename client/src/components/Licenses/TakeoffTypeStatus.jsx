@@ -57,7 +57,7 @@ const TakeoffTypeStatus = (props) => {
             <div>
                 <h6>{item.takeoffType}:</h6>
                 {renderProgressbar(amountInTimeFrame)}
-                Sie haben {amountInTimeFrame} Starts des Typs '{item.takeoffType}' in den letzten {item.months} Monaten gemacht (erforderlich {item.amount}).
+                Sie haben {amountInTimeFrame} Starts des Typs "{item.takeoffType}" in den letzten {item.months} Monaten gemacht (erforderlich {item.amount}).
                 {invalidDateString}
                 <br />
                 <br />
